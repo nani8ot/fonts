@@ -16,19 +16,19 @@
         };
 
         packages.gillsans = pkgs.stdenvNoCC.mkDerivation {
-          name = "gillsans-font";
+          name = "nerdfont-symbols-only-font";
           dontConfigue = true;
           src = pkgs.fetchzip {
             url =
-              "https://cdn.freefontsvault.com/wp-content/uploads/2020/02/03141445/Gill-Sans-Font-Family.zip";
+              "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/NerdFontsSymbolsOnly.zip";
             sha256 = "sha256-YcZUKzRskiqmEqVcbK/XL6ypsNMbY49qJYFG3yZVF78=";
             stripRoot = false;
           };
           installPhase = ''
             mkdir -p $out/share/fonts
-            cp -R $src $out/share/fonts/opentype/
+            cp -R $src $out/share/fonts/truetype/
           '';
-          meta = { description = "A Gill Sans Font Family derivation."; };
+          meta = { description = "A NerdFonts Symbols Only Font Family derivation."; };
         };
 
         packages.palatino = pkgs.stdenvNoCC.mkDerivation {
