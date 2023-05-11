@@ -10,12 +10,12 @@
       let pkgs = nixpkgs.legacyPackages.${system};
       in {
         defaultPackage = pkgs.symlinkJoin {
-          name = "myfonts-0.1.4";
+          name = "myfonts-0.2.0";
           paths = builtins.attrValues
             self.packages.${system}; # Add font derivation names here
         };
 
-        packages.gillsans = pkgs.stdenvNoCC.mkDerivation {
+        packages.nerdfont-symbols = pkgs.stdenvNoCC.mkDerivation {
           name = "nerdfont-symbols-only-font";
           dontConfigue = true;
           src = pkgs.fetchzip {
@@ -26,6 +26,7 @@
           };
           installPhase = ''
             mkdir -p $out/share/fonts
+            rm LICENSE readme.md
             cp -R $src $out/share/fonts/truetype/
           '';
           meta = { description = "A NerdFonts Symbols Only Font Family derivation."; };
