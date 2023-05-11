@@ -26,7 +26,7 @@
           };
           installPhase = ''
             mkdir -p $out/share/fonts
-            rm LICENSE readme.md
+            rm -f LICENSE readme.md
             cp -R $src $out/share/fonts/truetype/
           '';
           meta = { description = "A NerdFonts Symbols Only Font Family derivation."; };
