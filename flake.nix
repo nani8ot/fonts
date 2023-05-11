@@ -21,7 +21,7 @@
           src = pkgs.fetchzip {
             url =
               "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/NerdFontsSymbolsOnly.zip";
-            sha256 = "sha256-YcZUKzRskiqmEqVcbK/XL6ypsNMbY49qJYFG3yZVF78=";
+            sha256 = "sha256-ntLbwY0ttGd8sMaa4ztkynxW1P0EtjIoYkqJaN7TJVw=";
             stripRoot = false;
           };
           installPhase = ''
@@ -29,22 +29,6 @@
             cp -R $src $out/share/fonts/truetype/
           '';
           meta = { description = "A NerdFonts Symbols Only Font Family derivation."; };
-        };
-
-        packages.palatino = pkgs.stdenvNoCC.mkDerivation {
-          name = "palatino-font";
-          dontConfigue = true;
-          src = pkgs.fetchzip {
-            url =
-              "https://www.dfonts.org/wp-content/uploads/fonts/Palatino.zip";
-            sha256 = "sha256-FBA8Lj2yJzrBQnazylwUwsFGbCBp1MJ1mdgifaYches=";
-            stripRoot = false;
-          };
-          installPhase = ''
-            mkdir -p $out/share/fonts
-            cp -R $src/Palatino $out/share/fonts/truetype/
-          '';
-          meta = { description = "The Palatino Font Family derivation."; };
         };
       });
 }
